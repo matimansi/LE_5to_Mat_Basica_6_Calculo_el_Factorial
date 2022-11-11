@@ -1,43 +1,30 @@
 
-/*
-	Pido por pantalla un valor y calculo su factorial.
-	Verificar que el número ingresado sea mayor a cero y menor a 12.
-	En caso de que el resultado sea el mismo valor que el del argumento lo indico por pantalla.
-	Devuelvo el resultado.
-	!n = n * (n - 1) * (n - 2) * . . . 
-
-	>>> TERMINADO <<<
-*/
-
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 int calculo_factorial (int valor);
 
 int main()
 {
-    srand(time(NULL));
-    unsigned int num = 0, factorial;
-	printf("Bienvenido a mi programa...\n");
-	do
+	unsigned int num = 0, factorial;
+	printf("\nBienvenido a mi programa...\n");
+	printf("Ingrese un numero entero mayor 0 y menor a 12 para calcular su factorial\n>>> ");
+	scanf("%d", &num);
+	while (!((num > 0) && (num < 12)))
 	{
-	    num = rand()%20;    
+		printf("Valor ingreado NO VALIDO\nEl valor debe ser mayor a 0 y menor a 12\n>>> ");
+		scanf("%d", &num);
 	}
-	while (!((num > 0) && (num < 12)));
-	printf("Numero --> %d\n", num);
 	factorial = calculo_factorial(num);
-	printf("Factorial = %d\n", factorial);
+	printf("%d! = %d\n\n", num, factorial);
 	return 0;
 }
 
 int calculo_factorial (int valor)
 {
 	int resultado = 1, i;
-    for (i = 1; i <= valor; i++)
+	for (i = 1; i <= valor; i++)
 	{
-	    resultado = resultado * i;
-	    //printf("%d\n", resultado);
+		resultado = resultado * i;
 	}
 	return (resultado);
 }
